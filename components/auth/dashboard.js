@@ -62,7 +62,7 @@ export default class App extends Component {
                 </View>
 
                 <View style={styles.register_login_buttons_wrapper}>
-                    <TouchableOpacity style={styles.register_btn}>
+                    <TouchableOpacity style={styles.register_btn}  onPress={() => this.redirectToSignUp()}>
                         <Text style={styles.register_btn_text}>Зарегистрироваться</Text>
                     </TouchableOpacity>
 

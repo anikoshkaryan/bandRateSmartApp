@@ -47,6 +47,9 @@ export default class App extends Component {
         this.props.navigation.navigate("Dashboard");
 
     }
+    redirectToRecoveryAccountEmail = () => {
+        this.props.navigation.navigate("RecoveryAccountEmail");
+    }
 
     render() {
 
@@ -88,6 +91,8 @@ export default class App extends Component {
                                 style={styles.sign_in_input_field}
                                 onChangeText={(val) => this.setState({password: val})}
                                 value={this.state.password}
+                                secureTextEntry={true}
+
                             />
                         </View>
                         <View style={styles.privacy_policy_checkbox_input}>
@@ -95,21 +100,32 @@ export default class App extends Component {
                                 style={[styles.inputRadio, this.state.sort_by_default ? styles.activeInputRadioBorder : {}]}
                                 onPress={()=> {
                                     this.setState({
-                                        sort_by_default: true,
+                                        sort_by_default: !this.state.sort_by_default,
                                     })
                                 }}>
                                 {this.state.sort_by_default &&
                                 <View style={styles.activeRadioRound}>
 
+                                    <Svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width={16}
+                                        height={16}
+                                        viewBox="0 0 83 65"
+                                        fill="none"
+                                    >
+                                        <Path
+                                            d="M73.333.667L28 46 9.333 27.333 0 36.667l28 28L82.667 10 73.333.667z"
+                                            fill="#EFEFEF"
+                                        />
+                                    </Svg>
+
                                 </View>
                                 }
                             </TouchableOpacity>
-                           <Text style={styles.privacy_rules}>
-                               <Text style={styles.privacy_policy_text}>
+                           <Text style={[styles.privacy_policy_text]}>
                                    Согласен с правилами
-                               </Text>
 
-
+                               <View style={{marginRight:5}}></View>
                                <Text style={[styles.privacy_policy_text_bold]}>
                                          бренда и политикой конфиденциальности
 
@@ -123,7 +139,7 @@ export default class App extends Component {
                         <TouchableOpacity style={styles.sign_in_btn}>
                             <Text style={styles.sign_in_btn_text}>Войти</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={styles.forget_password_btn}>
+                        <TouchableOpacity style={styles.forget_password_btn} onPress={() => this.redirectToRecoveryAccountEmail()}>
                             <Text style={styles.forget_password_btn_text}>Забыли пароль?</Text>
                         </TouchableOpacity>
 
@@ -151,7 +167,7 @@ const styles = StyleSheet.create({
     back_to_dashboard_btn_wrapper: {
         marginBottom: 56,
         paddingHorizontal: 17,
-        alignItems: "flex-end",
+        // alignItems: "flex-end",
     },
 
     sing_in_inputs_title_wrapper: {
@@ -194,9 +210,11 @@ const styles = StyleSheet.create({
         borderRadius: 8,
         marginBottom: 18,
         width: "100%",
+        maxWidth: 265,
         height: 50,
         alignItems: 'center',
         justifyContent: 'center',
+        alignSelf: 'center',
     },
     sign_in_btn_text: {
         color: '#ffffff',
@@ -213,9 +231,9 @@ const styles = StyleSheet.create({
         fontWeight:'bold',
         fontSize: 15,
     },
-    activeInputRadioBorder: {
-       borderColor: '#D0251D',
-    },
+    // activeInputRadioBorder: {
+    //    borderColor: '#D0251D',
+    // },
 
     inputRadio: {
         backgroundColor: "#E4E4E4",
@@ -228,10 +246,12 @@ const styles = StyleSheet.create({
     },
 
     activeRadioRound:{
-        width: 24,
-        height: 24,
+        width: 28,
+        height: 28,
         backgroundColor: "#D0251D",
         borderRadius: 4,
+        alignItems: "center",
+        justifyContent: "center",
     },
     privacy_policy_checkbox_input: {
         flexDirection: 'row',

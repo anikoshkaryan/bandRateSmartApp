@@ -9,6 +9,10 @@ const Stack = createStackNavigator();
 
 import DashboardComponent from './components/auth/dashboard';
 import SignInComponent from './components/sign_in/sign_in';
+import SignUpComponent from './components/sign_up/sign_up';
+import RecoveryAccountEmailComponent from './components/recovery_account_email/recovery_account_email';
+import RecoveryAccountCodeComponent from './components/recovery_account_code/recovery_account_code';
+import NewPasswordComponent from './components/new_password/new_password';
 
 function DashboardScreen({ navigation }) {
   return (
@@ -21,6 +25,31 @@ function SignInScreen({ navigation }) {
         <SignInComponent navigation={navigation}  />
     );
 }
+
+function SignUpScreen({ navigation }) {
+    return (
+        <SignUpComponent navigation={navigation}  />
+    );
+}
+function RecoveryAccountEmailScreen({ navigation }) {
+    return (
+        <RecoveryAccountEmailComponent navigation={navigation}  />
+    );
+}
+
+
+function RecoveryAccountCodeScreen({ navigation }) {
+    return (
+        <RecoveryAccountCodeComponent navigation={navigation}  />
+    );
+}
+
+function NewPasswordScreen({ navigation }) {
+    return (
+        <NewPasswordComponent navigation={navigation}  />
+    );
+}
+
 
 
 
@@ -49,6 +78,35 @@ export default function App() {
                               tabBarStyle: {display: 'none'},
                           })}
             />
+
+            <Stack.Screen name="SignUp" component={SignUpScreen}
+                          options={({route}) => ({
+                              tabBarButton: () => null,
+                              tabBarStyle: {display: 'none'},
+                          })}
+            />
+
+            <Stack.Screen name="RecoveryAccountEmail" component={RecoveryAccountEmailScreen}
+                          options={({route}) => ({
+                              tabBarButton: () => null,
+                              tabBarStyle: {display: 'none'},
+                          })}
+            />
+
+            <Stack.Screen name="RecoveryAccountCode" component={RecoveryAccountCodeScreen}
+                          options={({route}) => ({
+                              tabBarButton: () => null,
+                              tabBarStyle: {display: 'none'},
+                          })}
+            />
+
+            <Stack.Screen name="NewPassword" component={NewPasswordScreen}
+                          options={({route}) => ({
+                              tabBarButton: () => null,
+                              tabBarStyle: {display: 'none'},
+                          })}
+            />
+
 
 
 
