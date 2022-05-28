@@ -13,6 +13,8 @@ import SignUpComponent from './components/sign_up/sign_up';
 import RecoveryAccountEmailComponent from './components/recovery_account_email/recovery_account_email';
 import RecoveryAccountCodeComponent from './components/recovery_account_code/recovery_account_code';
 import NewPasswordComponent from './components/new_password/new_password';
+import CatalogComponent from './components/catalog/catalog';
+import CardProductComponent from './components/card_product/card_product';
 
 function DashboardScreen({ navigation }) {
   return (
@@ -47,6 +49,18 @@ function RecoveryAccountCodeScreen({ navigation }) {
 function NewPasswordScreen({ navigation }) {
     return (
         <NewPasswordComponent navigation={navigation}  />
+    );
+}
+
+function CatalogScreen({ navigation }) {
+    return (
+        <CatalogComponent navigation={navigation}  />
+    );
+}
+
+function CardProductScreen({ navigation }) {
+    return (
+        <CardProductComponent navigation={navigation}  />
     );
 }
 
@@ -107,6 +121,20 @@ export default function App() {
                           })}
             />
 
+
+            <Stack.Screen name="Catalog" component={CatalogScreen}
+                          options={({route}) => ({
+                              tabBarButton: () => null,
+                              tabBarStyle: {display: 'none'},
+                          })}
+            />
+
+            <Stack.Screen name="CardProduct" component={CardProductScreen}
+                          options={({route}) => ({
+                              tabBarButton: () => null,
+                              tabBarStyle: {display: 'none'},
+                          })}
+            />
 
 
 

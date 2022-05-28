@@ -51,6 +51,10 @@ export default class App extends Component {
         this.props.navigation.navigate("RecoveryAccountEmail");
     }
 
+    redirectToCatalog = () => {
+        this.props.navigation.navigate("Catalog");
+    }
+
     render() {
 
         return (
@@ -136,7 +140,7 @@ export default class App extends Component {
                     </View>
 
 
-                        <TouchableOpacity style={styles.sign_in_btn}>
+                        <TouchableOpacity style={styles.sign_in_btn} onPress={() => this.redirectToCatalog()}>
                             <Text style={styles.sign_in_btn_text}>Войти</Text>
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.forget_password_btn} onPress={() => this.redirectToRecoveryAccountEmail()}>
