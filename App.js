@@ -15,6 +15,8 @@ import RecoveryAccountCodeComponent from './components/recovery_account_code/rec
 import NewPasswordComponent from './components/new_password/new_password';
 import CatalogComponent from './components/catalog/catalog';
 import CardProductComponent from './components/card_product/card_product';
+import FavoritesComponent from './components/favorites/favorites';
+import BasketComponent from './components/basket/basket';
 
 function DashboardScreen({ navigation }) {
   return (
@@ -61,6 +63,18 @@ function CatalogScreen({ navigation }) {
 function CardProductScreen({ navigation }) {
     return (
         <CardProductComponent navigation={navigation}  />
+    );
+}
+
+function FavoritesScreen({ navigation }) {
+    return (
+        <FavoritesComponent navigation={navigation}  />
+    );
+}
+
+function BasketScreen({ navigation }) {
+    return (
+        <BasketComponent navigation={navigation}  />
     );
 }
 
@@ -136,6 +150,19 @@ export default function App() {
                           })}
             />
 
+            <Stack.Screen name="Favorites" component={FavoritesScreen}
+                          options={({route}) => ({
+                              tabBarButton: () => null,
+                              tabBarStyle: {display: 'none'},
+                          })}
+            />
+
+            <Stack.Screen name="Basket" component={BasketScreen}
+                          options={({route}) => ({
+                              tabBarButton: () => null,
+                              tabBarStyle: {display: 'none'},
+                          })}
+            />
 
 
 

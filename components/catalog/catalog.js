@@ -121,6 +121,14 @@ export default class App extends Component {
     }
 
 
+    redirectToFavorites = () => {
+        this.props.navigation.navigate("Favorites");
+    }
+
+    redirectToBasket = () => {
+        this.props.navigation.navigate("Basket");
+    }
+
 
     render() {
 
@@ -205,7 +213,7 @@ export default class App extends Component {
 
                      <View style={styles.footer_wrapper}>
 
-                         <TouchableOpacity style={styles.footer_page_btn}>
+                         <TouchableOpacity style={styles.footer_page_btn} onPress={() => this.redirectToFavorites()}>
                              <Svg
                                  xmlns="http://www.w3.org/2000/svg"
                                  width={28}
@@ -252,7 +260,7 @@ export default class App extends Component {
                                  />
                              </Svg>
                          </TouchableOpacity>
-                         <TouchableOpacity style={styles.footer_page_btn}>
+                         <TouchableOpacity style={styles.footer_page_btn} onPress={() => this.redirectToBasket()}>
                              <Svg
                                  xmlns="http://www.w3.org/2000/svg"
                                  width={33}

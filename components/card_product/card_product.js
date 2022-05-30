@@ -94,7 +94,13 @@ export default class App extends Component {
         return this.state.slider_images;
     }
 
+    redirectToCatalog = () => {
+        this.props.navigation.navigate("Catalog");
+    }
 
+    redirectToFavorites = () => {
+        this.props.navigation.navigate("Favorites");
+    }
 
     render() {
 
@@ -289,7 +295,7 @@ export default class App extends Component {
                     </ScrollView>
                 <View style={styles.footer_wrapper}>
 
-                    <TouchableOpacity style={styles.footer_page_btn}>
+                    <TouchableOpacity style={styles.footer_page_btn} onPress={() => this.redirectToFavorites()}>
                         <Svg
                             xmlns="http://www.w3.org/2000/svg"
                             width={28}
@@ -321,7 +327,7 @@ export default class App extends Component {
                         </Svg>
                     </TouchableOpacity>
 
-                    <TouchableOpacity style={[styles.footer_page_btn, {positon: "relative", bottom: 8}]}>
+                    <TouchableOpacity style={[styles.footer_page_btn, {positon: "relative", bottom: 8}]} onPress={() => this.redirectToCatalog()}>
                         <Svg
                             xmlns="http://www.w3.org/2000/svg"
                             width={44}
